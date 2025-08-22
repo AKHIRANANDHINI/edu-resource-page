@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Class Study Resources</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <h1>Class Study Resources</h1>
+      <p class="subtitle">Curated links to notes, books, labs & past papers</p>
+      <form class="search" role="search" aria-label="Filter resources">
+        <input id="q" type="search" placeholder="Search resources…" aria-label="Search resources" />
+      </form>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2 class="section-title">Latest</h2>
+      <div class="resources-grid" id="resourceList">
+        <!-- Card 1 -->
+        <article class="card">
+          <div class="card-top">
+            <span class="badge">Notes</span>
+          </div>
+          <h3 class="card-title">
+            <a href="https://example.com/sem3-dsa-notes.pdf" target="_blank" rel="noopener">DSA Lecture Notes (Sem 3)</a>
+          </h3>
+          <p class="card-desc">Concise PDF notes covering arrays, stacks, queues, trees & graphs.</p>
+          <ul class="tags">
+            <li>PDF</li><li>DSA</li><li>Sem 3</li>
+          </ul>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <div class="card-top">
+            <span class="badge badge-accent">Book</span>
+          </div>
+          <h3 class="card-title">
+            <a href="https://example.com/os-reference" target="_blank" rel="noopener">Operating Systems – Reference</a>
+          </h3>
+          <p class="card-desc">Free online reference for processes, threads, scheduling and memory.</p>
+          <ul class="tags">
+            <li>Web</li><li>OS</li>
+          </ul>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <div class="card-top">
+            <span class="badge">Labs</span>
+          </div>
+          <h3 class="card-title">
+            <a href="https://example.com/dbms-lab" target="_blank" rel="noopener">DBMS Lab Exercises</a>
+          </h3>
+          <p class="card-desc">Hands-on SQL sheets: joins, subqueries, triggers & indexing.</p>
+          <ul class="tags">
+            <li>SQL</li><li>DBMS</li><li>Labs</li>
+          </ul>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card">
+          <div class="card-top">
+            <span class="badge">Papers</span>
+          </div>
+          <h3 class="card-title">
+            <a href="https://example.com/past-papers" target="_blank" rel="noopener">Past Question Papers</a>
+          </h3>
+          <p class="card-desc">Previous 5 years’ university exam papers with marking schemes.</p>
+          <ul class="tags">
+            <li>Exam</li><li>Practice</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Contribute</h2>
+      <p>
+        Have a great resource? Open a pull request on GitHub or
+        <a href="https://github.com/username/resource-page/issues/new" target="_blank" rel="noopener">create an issue</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="y"></span> Class Resource Hub · Hosted on GitHub Pages</p>
+      <a class="button ghost" href="https://github.com/username/resource-page" target="_blank" rel="noopener">View Source</a>
+    </div>
+  </footer>
+
+  <!-- Tiny progressive enhancement: local search filter, no external JS -->
+  <script>
+    const q = document.getElementById('q');
+    const cards = [...document.querySelectorAll('.card')];
+    const y = document.getElementById('y'); y.textContent = new Date().getFullYear();
+    q?.addEventListener('input', e => {
+      const term = e.target.value.trim().toLowerCase();
+      cards.forEach(c => {
+        const text = c.innerText.toLowerCase();
+        c.style.display = text.includes(term) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
